@@ -1,0 +1,90 @@
+:root {
+  --primary-c: #212121;
+  --secondry-c: #003f52;
+  --third-c: #20C997;
+  --red-c: #ff0000;
+}
+
+/* 
+008fba
+--primary-c:#212121;
+  --secondry-c:#1b1d33;
+  --third-c:#007295; */
+
+  /* 
+  1C7474
+  20C997
+  */
+body {
+  background-color: var(--primary-c) !important;
+}
+
+nav {
+  background-color: var(--secondry-c) !important;
+}
+
+.fot {
+  background-color: var(--secondry-c) !important;
+}
+
+.prim {
+  background-color: var(--primary-c) !important;
+}
+
+.sec {
+  background-color: var(--secondry-c) !important;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: var(--third-c) !important;
+  box-shadow: 0 0 10px var(--third-c) !important;
+}
+textarea:focus {
+  outline: none !important;
+  border-color: var(--third-c) !important;
+  box-shadow: 0 0 10px var(--third-c) !important;
+}
+
+button:not(.del) {
+  background-color: var(--third-c) !important;
+  color: white !important;
+  border: none !important;
+}
+
+button:hover {
+  background-color: var(--primary-c) !important;
+  outline: none !important;
+  border-color: var(--third-c) !important;
+  box-shadow: 0 0 10px var(--third-c) !important;
+}
+
+.homeBtn {
+  font-size: 0.7rem !important;
+}
+
+.redBtn{
+  border: none !important;
+}
+
+.redBtn:hover{
+  background-color: var(--primary-c) !important;
+  outline: none !important;
+  border-color: var(--red-c) !important;
+  box-shadow: 0 0 15px var(--red-c) !important;
+}
+
+.myTxt {
+  color: var(--third-c) !important;
+  font-weight: 500;
+}
+
+::placeholder {
+  color: var(--third-c) !important;
+}
+
+.in{
+  border: 1px solid var(--third-c) !important;
+  color: white !important;
+}
+

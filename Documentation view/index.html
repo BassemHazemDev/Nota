@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container text-center p-5">
+        <h2>Nota project documentation</h2>
+        <h5 class="pt-2">here is a video for the project</h5>
+        <video src="CRUD vid.mp4" class="w-75 pb-2 pt-2" autoplay controls></video>
+
+        <div class="info d-flex flex-column align-items-center">
+            <p class="text-decoration-none rounded fw-bold fs-5 w-50">By Eng.Bassem Hazem Mahmoud</p>
+            <div class="info d-flex">
+                <a href="https://github.com/BassemHazemDev" rel="noopener" target="_blank"
+                    class="text-decoration-none text-bg-success rounded fw-bold fs-5 mx-5">Github</a>
+                <a href="https://www.linkedin.com/in/bassem-hazem-7902b32a2/" rel="noopener" target="_blank"
+                    class="text-decoration-none text-bg-primary rounded fw-bold fs-5 mx-5">Linkedin</a>
+            </div>
+        </div>
+    </div>
+    <div class="container text-start p-2 w-75">
+
+        <div class="container form-control bg-dark text-white">
+            <h4 class="fw-medium my-2">Overview</h4>
+            <p class="fw-medium">
+                This is a complete web application "Nota" app deveoped with MERN stack , that allow you to add notes ,
+                edit it and delete
+                with a login and signup system that use tokens , email verify , validation and error system.
+                The skills used are :
+            </p>
+            <p class="text-info">
+                HTML , CSS , Bootstrap , JS , React -> for the Front-End (client) section
+            </p>
+            <p class="text-success">
+                Node.js , MongoDB , Express , Api , Web tokens , Validation -> for the Back-End (server) section
+            </p>
+        </div>
+
+        <hr>
+
+
+        <h4 class="fw-medium my-2">Details</h4>
+        <div class="container form-control bg-dark text-white">
+            <h4 class="fw-medium my-2">Front-End</h4>
+            <div class="container form-control bg-dark text-white">
+                <h5 class="fw-medium my-2 text-success">React Features:</h5>
+                <p>
+                    The front-end uses React framework with routing system, Bootstrap for styling , css custom styling
+                    and API requests to the backend. Key
+                    features
+                    include:
+                </p>
+                <ul>
+                    <li class="my-2"><span class="fw-bold text-info">Login and Register:</span> a complete system that
+                        alerts you with any error in validation , existing email or wrong password etc... </li>
+                    <li class="my-2"><span class="fw-bold text-info">Create a New Note:</span> Users can create new
+                        notes by entering a title and description.</li>
+                    <li class="my-2"><span class="fw-bold text-info">Edit Notes:</span> Existing notes can be edited
+                        easily by selecting the note and modifying its content.</li>
+                    <li class="my-2"><span class="fw-bold text-info">Delete Notes:</span> Notes can be permanently
+                        deleted with a alert of confirmation.</li>
+                    <li class="my-2"><span class="fw-bold text-info">Persistent Storage:</span> Notes are saved in the
+                        database, ensuring that data is not lost.</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="container form-control bg-dark text-white">
+                <h5 class="fw-medium text-success my-2">Main Functions:</h5>
+                <ul>
+                    <li class="my-2"><span class="fw-bold text-info">signIn(e):</span> Handles user sign-in by sending
+                        credentials to the server. If successful, stores the token, navigates to the home page, and
+                        stops loading. Displays errors if any occur. </li>
+                    <li class="my-2"><span class="fw-bold text-info">signUp(e):</span> Registers a new user by sending
+                        their data to the server. On success, redirects to the login page. Displays errors if any occur.
+                    </li>
+                    <li class="my-2"><span class="fw-bold text-info">fetchNotes():</span> Retrieves all notes for the
+                        current user using the authorization token. Sets the notes in state or displays errors if any
+                        occur.</li>
+                    <li class="my-2"><span class="fw-bold text-info">addNote(e):</span> Adds a new note after checking
+                        required fields. Sends the note data to the server with the authorization token. Refreshes the
+                        notes list on success or shows errors.</li>
+                    <li class="my-2"><span class="fw-bold text-info">deleteNote(id):</span> Deletes a note using the
+                        note ID and authorization token. Refreshes the notes list after successful deletion, or shows
+                        errors if any.</li>
+                    <li class="my-2"><span class="fw-bold text-info">updateNote(id):</span> Fetches the note by ID for
+                        editing, updates the note form fields, and enables editing mode.</li>
+                    <li class="my-2"><span class="fw-bold text-info">saveNoteUpdate(e):</span> Sends updated note data
+                        to the server to save changes. Refreshes the note list and exits editing mode after a successful
+                        update. Displays errors if any occur.</li>
+                    <li class="my-2"><span class="fw-bold text-info">PrivateRoute({ children }):</span> Checks if the
+                        user is authenticated by verifying a token stored in localStorage. It decodes the token to match
+                        the user's email. If authenticated, the user can access the protected route; otherwise, they are
+                        redirected to a "Not Found" page.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container form-control bg-dark text-white">
+            <h4 class="fw-medium my-2">Back-End</h4>
+            <div class="container form-control bg-dark text-white">
+                <h5 class="fw-medium text-success my-2">API Endpoints:</h5>
+                <ul>
+                    <li>
+                        <h5 class="fw-medium text-info my-2">User</h5>
+                    </li>
+                </ul>
+                <div class="row m-1 my-4">
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[POST] /user/signup</span>
+                                <li>Request:</li>
+                            <pre class="text-danger">
+        {
+            "name":"Bassem Hazem",
+            "email":"bassemhazemmahmouddev@gmail.com",
+            "age":20,
+            "password":"Alej2223",
+            "cPassword":"Alej2223",
+            "role":"admin"
+        }</pre>
+                            </p>
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success"
+        }</pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[POST] /user/signin</span>
+                                <li>Request:</li>
+                            <pre class="text-danger">
+        {
+            "email":"bassemhazemmahmouddev@gmail.com",
+            "password":"Alej2223"
+        }</pre>
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+            eyJ1c2VySWQiOiI2NmYzMzZhZGFkYzMwNTY3ZDU3MWQ5Nz
+            ciLCJuYW1lIjoiQmFzc2VtIEhhemVtIiwiZW1haWwiOiJi
+            YXNzZW1oYXplbW1haG1vdWRkZXZAZ21haWwuY29tIiwiaW..."
+        }           </pre>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-1 my-4">
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[GET] user/verify/:verify email token</span>
+                                <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success"
+        }           </pre>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <h5 class="fw-medium text-info my-2">Notes</h5>
+                    </li>
+                </ul>
+                <div class="row m-1 my-4">
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[GET] /note/all</span>
+                                <li>Authorization:</li>
+                            <pre class="text-danger">
+        Bearer Token  "token"</pre>
+
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success",
+            "notes": [...]
+        }           </pre>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[GET] /note/:id</span>
+                                <li>Authorization:</li>
+                            <pre class="text-danger">
+        Bearer Token  "token"</pre>
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success",
+            "notes": [...]
+        }           </pre>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="row m-1 my-4">
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[POST] /note/add</span>
+                                <li>Authorization:</li>
+                            <pre class="text-danger">
+        Bearer Token  "token"</pre>
+                            <li>Request:</li>
+                            <pre class="text-danger">
+        {
+            "title":"My day",
+            "description":"good"
+        }</pre>
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success"
+        }           </pre>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-control bg-dark text-white">
+                            <p>
+                                <span class="text-info">[PUT] /note/update</span>
+                                <li>Authorization:</li>
+                            <pre class="text-danger">
+        Bearer Token  "token"</pre>
+                            <li>Request Body:</li>
+                            <pre class="text-danger">
+        {
+            "_id":"66f33abcad1d1d0baa16babe",
+            "title":"My day 2",
+            "description":"good 100%"
+        }  </pre>
+                            <li>Response:</li>
+                            <pre class="text-danger">
+        {
+            "message": "success",
+            "updatedNote": {
+                "_id": "66f33abcad1d1d0baa16babe",
+                "title": "blog",
+                "description": "good 100%",
+                "createdBy": "66f336adadc30567d571d977",
+                "__v": 0
+            }
+        }        </pre>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row m-1 my-4"></div>
+                <div class="col-md-6">
+                    <div class="form-control bg-dark text-white ">
+                        <p>
+                            <span class="text-info">[DELETE] /note/delete/:id</span>
+                            <li>Authorization:</li>
+                        <pre class="text-danger">
+        Bearer Token  "token"</pre>
+                        <li>Response:</li>
+                        <pre class="text-danger">
+        {
+            "message": "done",
+            "deleted": {
+                "_id": "66f33abcad1d1d0baa16babe",
+                "title": "blog",
+                "description": "good 100%",
+                "createdBy": "66f336adadc30567d571d977",
+                "__v": 0
+            }
+        }                         </pre>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container form-control bg-dark text-white">
+            <h5 class="fw-medium text-success my-2">Database Schema:</h5>
+            <div class="container form-control bg-dark text-white m-1 my-4">
+                <ul>
+                    <li class="my-2"><span class="fw-bold text-info">Notes</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">_id</span> (ObjectId, primary key): Unique identifier for
+                            the
+                            note by the MongoDB.</li>
+                        <li class="my-2"><span class="fw-bold">title</span> (String): The title of the note.</li>
+                        <li class="my-2"><span class="fw-bold">description</span> (String): The description of the note.
+                        </li>
+                        <li class="my-2"><span class="fw-bold">createdBy</span> (ObjectId, ref: 'User'): The ID of the
+                            user
+                            who created the note.</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="container form-control bg-dark text-white m-1 my-4">
+                <ul>
+                    <li class="my-2"><span class="fw-bold text-info">Users</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">_id </span>(ObjectId, primary key): Unique identifier for
+                            the
+                            user by the MongoDB.</li>
+                        <li class="my-2"><span class="fw-bold">name </span>(String): The name of the user.</li>
+                        <li class="my-2"><span class="fw-bold">email </span>(String): The email address of the user.
+                        </li>
+                        <li class="my-2"><span class="fw-bold">age </span>(Number): The age of the user.</li>
+                        <li class="my-2"><span class="fw-bold">password </span>(String): The password of the user.</li>
+                        <li class="my-2"><span class="fw-bold">role </span>(String): The role of the user, which can be
+                            either 'admin' or 'user', with a default value of 'admin'.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <div class="container form-control bg-dark text-white ">
+            <h5 class="fw-medium text-success my-2">Validation: using Joi</h5>
+            <div class="container form-control bg-dark text-white m-1 my-4">
+                <span class="fw-bold text-info my-2">User validation</span>
+                <ul>
+                    <li class="my-2"><span class="fw-bold">signUpSchema:</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">name: </span>Required string, minimum 3 characters,
+                            maximum
+                            30 characters.</li>
+                        <li class="my-2"><span class="fw-bold">email: </span>Required, valid email with com or net TLDs.
+                        </li>
+                        <li class="my-2"><span class="fw-bold">age: </span>Required number.</li>
+                        <li class="my-2"><span class="fw-bold">password </span>String matching the pattern: uppercase
+                            letter, followed by lowercase letters or numbers (3-10 characters).</li>
+                        <li class="my-2"><span class="fw-bold">cPassword: </span>Must match password.</li>
+                        <li class="my-2"><span class="fw-bold">role: </span>Required string.</li>
+                    </ul>
+                </ul>
+                <br>
+                <ul>
+                    <li class="my-2"><span class="fw-bold my-2">signInSchema:</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">email: </span>Required, valid email with com or net TLDs.
+                        </li>
+                        <li class="my-2"><span class="fw-bold">password </span>String matching the pattern: uppercase
+                            letter, followed by lowercase letters or numbers (3-10 characters).</li>
+                    </ul>
+                </ul>
+            </div>
+
+
+            <div class="container form-control bg-dark text-white m-1 my-4">
+                <span class="fw-bold text-info my-2">Note validation</span>
+                <ul>
+                    <li class="my-2"><span class="fw-bold">addNoteSchema:</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">title: </span>Required string, minimum 3 characters,
+                            maximum 30 characters.</li>
+                        <li class="my-2"><span class="fw-bold">description: </span>Required string.</li>
+                        <li class="my-2"><span class="fw-bold">createdBy: </span>String of length 24 (for ID).</li>
+                    </ul>
+                </ul>
+                <br>
+                <ul>
+                    <li class="my-2"><span class="fw-bold my-2">updateNoteSchema:</span></li>
+                    <ul>
+                        <li class="my-2"><span class="fw-bold">_id: </span>Required string of length 24 (for ID).</li>
+                        <li class="my-2"><span class="fw-bold">title: </span>Optional string, minimum 3 characters,
+                            maximum 30 characters.</li>
+                        <li class="my-2"><span class="fw-bold">description: </span>Optional string.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="container form-control bg-dark text-white">
+            <h5 class="fw-medium text-success my-2">Additionals </h5>
+            <ul>
+                <li class="my-2"><span class="fw-bold text-info">Tokens:</span></li>
+                <p>Tokens are generated using jsonwebtoken (jwt).</p>
+                <li class="my-2"><span class="fw-bold text-info">Passwords:</span></li>
+                <p>Passwords are encrypted using bcrypt with the suitable number of rounds.</p>
+                <li class="my-2"><span class="fw-bold text-info">Email verify:</span></li>
+                <p>Verifying eamils are send using nodemailer with a different token and you'll be able to verify your account when you receive the message by the end point verify.</p>
+                <li class="my-2"><span class="fw-bold text-info">Global Error Handling:</span></li>
+                <p>The system is handling all types of errors exist.</p>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="Js/bootstrap.min.js"></script>
+</body>
+
+</html>
